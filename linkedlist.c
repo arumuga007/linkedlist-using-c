@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct linkedlist{ 	//creation linkedlist using structure
-	int data;
-	struct linkedlist* next;
-}linkedlist;
-linkedlist* root = NULL;
+	int data; //value gonna store in a node
+	struct linkedlist* next; //To store address of the next node
+}linkedlist; // data and address of next node together is called as a node
+linkedlist* root = NULL; // root node is a global variable which can be accessable anywhere in a program and it always store the address of the first node
 void insert() {		//To insert new element to linkedlist in the begining O(1)
 	printf("\n How many elements do you want to add to linked list?"); 
 int size, data;
@@ -13,7 +13,7 @@ for(int i = 1; i <= size ; i++ ) {
 	printf("\nEnter the value of %d element:",i);
 	scanf("\n%d",&data);
 	linkedlist* temp;
-	temp =(linkedlist*) malloc(sizeof(linkedlist));
+	temp =(linkedlist*) malloc(sizeof(linkedlist)); //malloc function is used to allocate memory for our node in given size in heap memory
 	temp->data = data;
 	temp->next = root;
 	root = temp;
@@ -32,7 +32,7 @@ void display() {	//To display all the data of all node in the linked list
 		temp = temp->next;
 	}
 }
-void element_in_position() {
+void element_in_position() { //To remove element in particular position
 	printf("\nEnter the position of node which you want to see?");
 	int position;
 	linkedlist* temp = root;
@@ -42,7 +42,7 @@ void element_in_position() {
 	}
 	printf("\nThe element in position %d is %d",position,temp->data);
 }
-void removeElement() {
+void removeElement() { //To remove element you want ,where element value is equals to data of any node
 	int Element;
 	linkedlist* temp = root;
 	linkedlist* temp2 = NULL;
@@ -101,7 +101,7 @@ void calls() {
 			printf("\nInvalid choice");
 			break;
 	}
-	if(exit == 1)
+	if(exit == 1) //Used to break out of the outer loop easily
 		break;
 			}
 }
